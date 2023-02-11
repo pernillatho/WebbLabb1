@@ -1,0 +1,128 @@
+
+body{
+    background-color: #f4f3f2;
+}
+
+h1{
+  font-size: 5em;   
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(51, 72, 72);
+}
+
+.h3 {
+  font-family: 'Courier New', Courier, monospace;
+  font-style: oblique;
+}
+
+h6{
+  text-align: center;
+}
+
+.box{
+  margin-top: 40px;
+}
+
+.card{
+  margin-top: 40px;
+  width: 16em;
+}
+
+#cartList{
+  margin-top: 10px;
+}
+
+.size{
+  width: 12em; 
+  margin-top: 10px; 
+}
+
+.sizeSum{
+  width: 12em;
+  /* border-color: rgb(241, 28, 127);
+  background-color: rgb(236, 127, 178); */
+  color: whitesmoke;
+  background-color: #52796f;
+  border-width: 2px;
+  font-weight: bolder;
+  font-style: oblique;
+  text-align: center;
+}
+
+/*
+.btn-header {
+  margin: .5em 15% 2em 15%;
+  color: white;
+  border: 2px solid #2D9CDB;
+  background-color: rgba(255, 255, 255, .1);
+  border-radius: 0;
+  font-size: 1.5em;
+  font-weight: lighter;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.btn-header:hover {
+  background-color: rgba(255, 255, 255, .3);
+}
+
+.btn-play {
+  display: block;
+  margin: 0 auto;
+  color: #2D9CDB;
+  font-size: 4em;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  text-align: center;
+}
+
+.btn-primary {
+  color: white;
+  background-color: gray;
+  border: none;
+  border-radius: .3em;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: green;
+} */
+
+img{
+  border-radius: 0.5em;
+}
+
+
+ ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .btn{
+    background-color: #84a59d;
+  }
+
+  .navbar{
+    background-color: #84a59d;
+  }
+
+         .map-responsive {
+          overflow: hidden;
+          padding-bottom: 56.25%;
+          position: relative;
+          height: 0;
+        }
+      
+         .map-responsive iframe {
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+        } 
+
+   
