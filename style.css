@@ -1,6 +1,6 @@
 
 body{
-    background-color: #f4f3f2;
+  background-color: #f4f3f2;
 }
 
 h1{
@@ -95,34 +95,34 @@ img{
 }
 
 
- ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
-  .btn{
-    background-color: #84a59d;
-  }
+.btn{
+  background-color: #84a59d;
+}
 
-  .navbar{
-    background-color: #84a59d;
-  }
+.navbar{
+  background-color: #84a59d;
+}
 
-         .map-responsive {
-          overflow: hidden;
-          padding-bottom: 56.25%;
-          position: relative;
-          height: 0;
-        }
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
       
-         .map-responsive iframe {
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 100%;
-          position: absolute;
-        } 
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+} 
 
    

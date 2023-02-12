@@ -19,103 +19,95 @@ const products = [];
 const productsinCart = [];
 
  products.push(
-    new Product("../images/honung.jpg", "Honung", "100", "Kamin skapad av Kristian","True","True","True", "0", "0"),
+    new Product("../images/honung.jpg", "Honung", "100", "lorem lorem","True","True","True", "0", "0"),
     new Product("../images/pläd.jpg", "Fäll", "2200", "lorem lorem lorem", "True","True","True", "1", "0"),
     new Product("../images/ull.jpg","Pysselull", "400", "Lorem", "True","True", "True","2", "0")
   );
 
   displayProducts();
 
-  function displayProducts() {
-    
-    for (const product of products) {
+function displayProducts() {
+  for (const product of products) {
 
-    //Skapa element
-    const card = document.createElement("li");
-    const img = document.createElement("img");
-    const cardBody = document.createElement("div");
-    const cardText = document.createElement("h5");
-    const info = document.createElement("p");
-    const amount = document.createElement("p");
-    const cardFooter = document.createElement("div");
-    const addProduct = document.createElement("button");
-    const readMoreButton = document.createElement("button");
+  //Skapa element
+  const card = document.createElement("li");
+  const img = document.createElement("img");
+  const cardBody = document.createElement("div");
+  const cardText = document.createElement("h5");
+  const info = document.createElement("p");
+  const amount = document.createElement("p");
+  const cardFooter = document.createElement("div");
+  const addProduct = document.createElement("button");
+  const readMoreButton = document.createElement("button");
+  
+  //Styla element
+  card.classList.add("card", "border-1", "border-secondary");
+  img.classList.add("card-img-top");
+  cardBody.classList.add("card-body");
+  cardText.classList.add("card-text");
+  info.classList.add("p");
+  amount.classList.add("p");
+  cardFooter.classList.add("card-footer");
+  addProduct.classList.add(
+    "btn",
+    "mx-1", 
+    "border"
+  );
+  readMoreButton.classList.add(
+    "btn",
+    "mx-2",
+    "border"
+  );
 
-    //Styla element
-    card.classList.add("card", "border-1", "border-secondary");
-    img.classList.add("card-img-top");
-    cardBody.classList.add("card-body");
-    cardText.classList.add("card-text");
-    info.classList.add("p");
-    amount.classList.add("p");
-    cardFooter.classList.add("card-footer");
-    addProduct.classList.add(
-      "btn",
-      "mx-1", 
-      "border"
-    );
-    readMoreButton.classList.add(
-      "btn",
-      "mx-2",
-      "border"
-    );
+  readMoreButton.setAttribute("data-bs-toggle", "modal");
+  readMoreButton.setAttribute("data-bs-target", `#modal`);
+  readMoreButton.setAttribute("id", `hej${product.id}`);
+  img.src = `${product.img}`;
+  img.alt = "bild";
+  cardText.innerText = `${product.productname}`;
+  info.innerText = `${product.price} kr`;
+  addProduct.innerText = "Lägg till";
+  readMoreButton.innerText = "Mer info";
 
-    readMoreButton.setAttribute("data-bs-toggle", "modal");
-    readMoreButton.setAttribute("data-bs-target", `#modal`);
-    readMoreButton.setAttribute("id", `hej${product.id}`);
-    img.src = `${product.img}`;
-    img.alt = "bild";
-    cardText.innerText = `${product.productname}`;
-    info.innerText = `${product.price} kr`;
-    addProduct.innerText = "Lägg till";
-    readMoreButton.innerText = "Mer info";
+  //Sätta upp event på element
+  addProduct.onclick = () => {
+    addToCart(product);
+  };
 
-    //Sätta upp event på element
-    addProduct.onclick = () => {
-      addToCart(product);
-    };
-
-    readMoreButton.onclick = () =>{
-      modal(product);
-    };
+  readMoreButton.onclick = () =>{
+    modal(product);
+  };
  
-    //Lägg till element i dom
-    cardFooter.append(addProduct, readMoreButton);
-    card.append(img, cardBody, cardText, info, cardFooter);
-    productList.append(card);
+  //Lägg till element i dom
+  cardFooter.append(addProduct, readMoreButton);
+  card.append(img, cardBody, cardText, info, cardFooter);
+  productList.append(card);
   }
 }
 
 //add product to cart
 function addToCart(item){
-
   if(productsinCart.includes(item)){
     return;
   }
 
-   for (const prod of products) {
+  for (const prod of products) {
     if(prod.id === item.id){
       productsinCart.push(item);
       prod.quantity ++;
       console.log(productsinCart);
     }
   }
-
    cartList.replaceChildren();
    displayCart();
 }
-
-// async function startButtonClick() {
-// displayCart();
-// }
 
 //Visa kundvagn
 function displayCart(){
 
   cartHeader(); 
 
-  for (const prod of productsinCart ) {
-    
+  for (const prod of productsinCart ) { 
     const card = document.createElement("li");
     const img = document.createElement("img");
     const cardBody = document.createElement("div");
@@ -145,7 +137,7 @@ function displayCart(){
 
     img.src = `${prod.img}`;
     cardText.innerText = `${prod.quantity}`;
-    info.innerText = `${prod.price} kr`;
+    info.innerText = `${prod.price} kr/st`;
     addProduct.innerText = "+";
     removeProduct.innerText = "-";
 
@@ -162,13 +154,9 @@ function displayCart(){
     cardFooter.append(cardText, addProduct, removeProduct);
     card.append(img, cardBody, info, cardFooter);
     cartList.append(card);
-    }
-      
-        totalPriceInCart();
-
-
-   }
-
+  }
+    totalPriceInCart();
+}
 
 //Lägg till antal
 function addAmountonItem(pickedItem){
@@ -177,7 +165,6 @@ function addAmountonItem(pickedItem){
     if(pickedItem.id === productsIn.id)
     {
       pickedItem.quantity ++;
-
       cartList.replaceChildren();
       displayCart();
     }
@@ -188,7 +175,6 @@ function addAmountonItem(pickedItem){
 // tabort antal 
   function removeAmount(item){
      for (const productsIn of productsinCart) {
-
       if(item.id === productsIn.id)
       {
         if(item.quantity > 0)
@@ -196,25 +182,22 @@ function addAmountonItem(pickedItem){
              productsIn.quantity --;
              console.log(productsIn)  
         }
-
-          if(productsIn.quantity === 0){
-          
+        if(productsIn.quantity === 0){
           var index = productsinCart.indexOf(productsIn);
           productsinCart.splice(index, 1);
-
         } 
       }  
         cartList.replaceChildren();
         displayCart();
     }
-  }
+}
 
-  function sumProduct(product){
-    for (const result of productsinCart) {
+function sumProduct(product){
+  for (const result of productsinCart) {
       
       let total = 0;
+      
       total+= (result.price * result.quantity);
-
       product.price = total;
 
       console.log(total);
@@ -222,57 +205,53 @@ function addAmountonItem(pickedItem){
 }
  
 function totalPriceInCart(){
-
   let total = productsinCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-  const cardCart = document.createElement("li");
-  const priceCart = document.createElement("p");
+    if (total > 0){
+      const cardCart = document.createElement("li");
+      const priceCart = document.createElement("p");
   
-  cardCart.classList.add("card","sizeSum");
-  priceCart.classList.add("p");
-  priceCart.innerText = `Summa: ${total} kr`;
+      cardCart.classList.add("card","sizeSum");
+      priceCart.classList.add("p");
+      priceCart.innerText = `Summa: ${total} kr`;
 
-    cardCart.append(priceCart);
-    cartList.append(cardCart);
+        cardCart.append(priceCart);
+        cartList.append(cardCart);
+    }
 }
 
-function cartHeader(item){
+function cartHeader(){
   const cardH3 = document.createElement("h3")
-   cardH3.classList.add("h3");
-
-   cardH3.innerText = "Kundvagn";
-
-   cartList.append(cardH3);
+  
+  cardH3.classList.add("h3");
+  cardH3.innerText = "Kundvagn";
+  cartList.append(cardH3); 
 }
 
 function modal(product){
 
   const modalw = document.querySelector(`#hej${product.id}`);
-
-
   const modal = document.createElement("modal");
+  const modalBody = document.createElement("modal-body");
   const modalDialog = document.createElement("modal-dialog");
   const modalContent = document.createElement("modal-content");
   const modalHeader = document.createElement("modal-header");
   // const button = document.createElement("btn");
-  const modalBody = document.createElement("modal-body");
-
+ 
   modal.classList.add('modal', 'fade');
   modalDialog.classList.add('modal-dialog');
   modalContent.classList.add('modal-content');
   modalHeader.classList.add('modal-header');
-  // button.classList.add('btn-close', 'data-bs-dismiss="modal', 'data-bs-target="#modal');
   modalBody.classList.add('modal-body');
 
   modal.setAttribute("id", `modal`);
 
-  modalHeader.innerText = "Hej";
+  modalHeader.innerText = `${product.productname}`;
+  modalContent.innerText = "Innehållsförteckning:";
   
-  modal.appendChild(modalDialog);
+  modal.appendChild(modalBody);
+  modalBody.appendChild(modalDialog);
   modalDialog.appendChild(modalContent);
   modalContent.appendChild(modalHeader);
-  // modalHeader.appendChild(modalHeader);
-  // modalBody.appendChild(modalBody);
-  
   modalw.appendChild(modal);
 }
