@@ -228,30 +228,47 @@ function cartHeader(){
   cartList.append(cardH3); 
 }
 
+// har ett error, får upp modalen om man trycker två gånger. 
+// Funkar inte heller på valt id, efter man valt en gång.
+
 function modal(product){
 
-  const modalw = document.querySelector(`#hej${product.id}`);
-  const modal = document.createElement("modal");
-  const modalBody = document.createElement("modal-body");
-  const modalDialog = document.createElement("modal-dialog");
-  const modalContent = document.createElement("modal-content");
-  const modalHeader = document.createElement("modal-header");
-  // const button = document.createElement("btn");
+    const modalw = document.querySelector(`#hej${product.id}`);
+    const modal = document.createElement("modal");
+    const modalBody = document.createElement("modal-body");
+    const modalDialog = document.createElement("modal-dialog");
+    const modalContent = document.createElement("modal-content");
+    const modalHeader = document.createElement("modal-header");
  
-  modal.classList.add('modal', 'fade');
-  modalDialog.classList.add('modal-dialog');
-  modalContent.classList.add('modal-content');
-  modalHeader.classList.add('modal-header');
-  modalBody.classList.add('modal-body');
+    modal.classList.add('modal', 'fade');
+    modalDialog.classList.add('modal-dialog');
+    modalContent.classList.add('modal-content');
+    modalHeader.classList.add('modal-header');
+    modalBody.classList.add('modal-body');
 
-  modal.setAttribute("id", `modal`);
+    modal.setAttribute("id", `modal`);
 
-  modalHeader.innerText = `${product.productname}`;
-  modalContent.innerText = "Innehållsförteckning:";
+    modalHeader.innerText = `${product.productname}`;
+    modalContent.innerText = "Innehållsförteckning:";
   
-  modal.appendChild(modalBody);
-  modalBody.appendChild(modalDialog);
-  modalDialog.appendChild(modalContent);
-  modalContent.appendChild(modalHeader);
-  modalw.appendChild(modal);
+    modal.appendChild(modalBody);
+    modalBody.appendChild(modalDialog);
+    modalDialog.appendChild(modalContent);
+    modalContent.appendChild(modalHeader);
+    modalw.appendChild(modal);
+}
+
+hejhej();
+
+ async function hejhej(){
+ const url = new URL(
+      `https://api.open-meteo.com/v1/forecast?latitude=57.87&longitude=11.98&hourly=temperature_2m`
+    );
+
+    const response = await fetch(url);
+      if (response.status === 200)
+  {
+     const json = await response.json();
+     console.log(json);
+  }
 }
