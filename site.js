@@ -19,9 +19,9 @@ const products = [];
 const productsinCart = [];
 
  products.push(
-    new Product("../images/honung.jpg", "Honung", "100", "lorem lorem","True","True","True", "0", "0"),
-    new Product("../images/pläd.jpg", "Fäll", "2200", "lorem lorem lorem", "True","True","True", "1", "0"),
-    new Product("../images/ull.jpg","Pysselull", "400", "Lorem", "True","True", "True","2", "0")
+    new Product("./images/honung.jpg", "Honung", "100", "lorem lorem","True","True","True", "0", "0"),
+    new Product("./images/pläd.jpg", "Fäll", "2200", "lorem lorem lorem", "True","True","True", "1", "0"),
+    new Product("./images/ull.jpg","Pysselull", "400", "Lorem", "True","True", "True","2", "0")
   );
 
   displayProducts();
