@@ -27,6 +27,7 @@ const productsinCart = [];
   displayProducts();
 
 function displayProducts() {
+
   for (const product of products) {
 
   //Skapa element
@@ -106,7 +107,7 @@ function addToCart(item){
 function displayCart(){
 
   cartHeader(); 
-
+  
   for (const prod of productsinCart ) { 
     const card = document.createElement("li");
     const img = document.createElement("img");
@@ -159,49 +160,37 @@ function displayCart(){
 }
 
 //Lägg till antal
-function addAmountonItem(pickedItem){
+function addAmountonItem(item){
   for (const productsIn of productsinCart) {
 
-    if(pickedItem.id === productsIn.id)
+    if(item.id === productsIn.id)
     {
-      pickedItem.quantity ++;
+      item.quantity ++;
+
       cartList.replaceChildren();
       displayCart();
     }
   }
-   console.log(productsinCart);
 }
 
 // tabort antal 
   function removeAmount(item){
-     for (const productsIn of productsinCart) {
-      if(item.id === productsIn.id)
+     for (const product of productsinCart) {
+      if(item.id === product.id)
       {
         if(item.quantity > 0)
         {
-             productsIn.quantity --;
-             console.log(productsIn)  
+             product.quantity --;
+             console.log(product)  
         }
-        if(productsIn.quantity === 0){
-          var index = productsinCart.indexOf(productsIn);
+        if(product.quantity === 0){
+          var index = productsinCart.indexOf(product);
           productsinCart.splice(index, 1);
         } 
       }  
         cartList.replaceChildren();
         displayCart();
     }
-}
-
-function sumProduct(product){
-  for (const result of productsinCart) {
-      
-      let total = 0;
-      
-      total+= (result.price * result.quantity);
-      product.price = total;
-
-      console.log(total);
-  } 
 }
  
 function totalPriceInCart(){
@@ -221,16 +210,15 @@ function totalPriceInCart(){
 }
 
 function cartHeader(){
-  const cardH3 = document.createElement("h3")
+  const h3 = document.createElement("h3");
   
-  cardH3.classList.add("h3");
-  cardH3.innerText = "Kundvagn";
-  cartList.append(cardH3); 
+  h3.classList.add("h3");
+  h3.innerText = "Kundvagn";
+  cartList.append(h3); 
 }
 
 // har ett error, får upp modalen om man trycker två gånger. 
 // Funkar inte heller på valt id, efter man valt en gång.
-
 function modal(product){
 
     const modalw = document.querySelector(`#hej${product.id}`);
@@ -248,8 +236,8 @@ function modal(product){
 
     modal.setAttribute("id", `modal`);
 
-    modalHeader.innerText = `${product.productname}`;
-    modalContent.innerText = "Innehållsförteckning:";
+    modalContent.innerText = `${product.productname}`;
+    modalHeader.innerText = "Innehållsförteckning:";
   
     modal.appendChild(modalBody);
     modalBody.appendChild(modalDialog);
@@ -258,9 +246,9 @@ function modal(product){
     modalw.appendChild(modal);
 }
 
-hejhej();
-
- async function hejhej(){
+//Ej färdig
+weatherApi();
+ async function weatherApi(){
  const url = new URL(
       `https://api.open-meteo.com/v1/forecast?latitude=57.87&longitude=11.98&hourly=temperature_2m`
     );

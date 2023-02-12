@@ -11,7 +11,12 @@ h1{
 }
 
 .h3 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: oblique;
+}
+
+h3 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: oblique;
 }
 
@@ -49,57 +54,19 @@ h6{
   text-align: center;
 }
 
-/*
-.btn-header {
-  margin: .5em 15% 2em 15%;
-  color: white;
-  border: 2px solid #2D9CDB;
-  background-color: rgba(255, 255, 255, .1);
-  border-radius: 0;
-  font-size: 1.5em;
-  font-weight: lighter;
-  padding-left: 2em;
-  padding-right: 2em;
-}
-
-.btn-header:hover {
-  background-color: rgba(255, 255, 255, .3);
-}
-
-.btn-play {
-  display: block;
-  margin: 0 auto;
-  color: #2D9CDB;
-  font-size: 4em;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  padding: 0;
-  text-align: center;
-}
-
-.btn-primary {
-  color: white;
-  background-color: gray;
-  border: none;
-  border-radius: .3em;
-  font-weight: bold;
-}
-
-.btn-primary:hover {
-  background-color: green;
-} */
-
 img{
   border-radius: 0.5em;
 }
-
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+nav{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .btn{
